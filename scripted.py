@@ -1,19 +1,27 @@
-#!/usr/bin/python
+# This is how you (#include) stuff in python
 import RPi.GPIO as GPIO
 import time
 
+# This does somthing important
 GPIO.setmode(GPIO.BCM)
 
-# init list with pin numbers
-
+# This is how you delclare variables in Python. No need for prefixes like int, void, string, char, etc
+# Sets a variable named pinList equal to array
 pinList = [2, 3, 4, 17]
 
 
-# loop through pins and set mode and state to 'high'
-
-for i in pinList: 
+# This is a range based for loop. In other words, the variable (i) will be set to (2), runs through the code, 
+# (3) then runs through the code, (4) then etc, then(17)
+for i in pinList: # First run: i = 2
+    # This initializes i to GPIO.OUT. In other words, this allows us to turn off an on lights.
     GPIO.setup(i, GPIO.OUT) 
-    GPIO.output(i, GPIO.LOW)
+
+    # GPIO.output accepts 2 parameters.
+    # Parameter 1: light you want to manipulate
+    # Parameter 2: turns light on or off.
+      # GPIO.LOW = off
+      # GPIO.HIGH = on 
+    GPIO.output(i, GPIO.LOW)  
 
 #function definitions
 
