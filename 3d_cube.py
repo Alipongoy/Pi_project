@@ -39,17 +39,26 @@ for i in pinList: # First run: i = 2
 #     time.sleep(flickers_per_second);
 
 
-def turn_on(on_length, *port_number):
-  for j in port_number:
-    GPIO.output(j, GPIO.HIGH)
+# This is a function that I made which turns on and off lights for a specific amount of time
+# Parameter 1: this a number which determines how long you are turning on an LED for.
+# Parameter 2: this is an array of which lights you want to turn on. 
+  # For example, passing [2,3,4] would turn on LEDS at 2,3,4 for on_length
+def turn_on(on_length, *port_number): 
+  # Range based for loop 
+  for i in port_number:
+    # turns i (LED port) on
+    GPIO.output(i, GPIO.HIGH)
+  # Sleeps for on_length. The reason for this is becuase if you turn on and off a light, there is no delay, which means
+  # The light would not even turn on.
   time.sleep(on_length)
-  for j in port_number:
-    GPIO.output(j, GPIO.LOW)
+  # turns i (LED port) off
+  for i in port_number:
+    GPIO.output(i, GPIO.LOW)
 
 def whereami(start_time):
   print "Time:" + str(time.time() - start_time)
-# main loop
 
+# This is the int main() of the program.
 try:
   start_time = time.time()
   #segment 1
@@ -124,5 +133,3 @@ except KeyboardInterrupt:
   GPIO.cleanup()
 
 
-# find more information on this script at
-# http://youtu.be/WpM1aq4B8-A
