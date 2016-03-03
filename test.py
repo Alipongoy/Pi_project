@@ -1,3 +1,3 @@
-light_array = { "front_top_right":1,"front_top_left":1, "front_bottom_left":1, "front_bottom_right":1,
+light_array = { "front_top_right":2,"front_top_left":1, "front_bottom_left":1, "front_bottom_right":17,
 "back_top_right":1,"back_top_left":1, "back_bottom_left":1, "back_bottom_right":1 }
-print light_array["front_bottom_right"] 
+print light_array["front_top_right"] 
